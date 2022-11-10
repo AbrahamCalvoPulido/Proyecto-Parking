@@ -11,7 +11,7 @@ public class proyectoParking {
         int opcionAdmin = 0,segundosAux = 0,segundosPagados = 0,minutosPagados = 0,horasPagados = 0;
         String usuarioAdmin = "Admin";
         String passAdmin = "1234";
-
+        System.out.println("hola");
         do {
             System.out.println();
             System.out.println("Bienvenido a Zona Azul de Martos");
