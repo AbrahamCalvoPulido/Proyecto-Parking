@@ -8,10 +8,10 @@ public class proyectoParking {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         Calendar d = Calendar.getInstance();
-        int opcionAdmin = 0,segundosAux = 0,segundosPagados = 0,minutosPagados = 0,horasPagados = 0;
-        String usuarioAdmin = "Admin";
-        String passAdmin = "1234";
-        System.out.println("hola");
+        int codigoTicket,codigoMulta,opcionAdmin = 4,opcionMultas,segundosAux = 0,segundosPagados = 0,minutosPagados = 0,horasPagados = 0;
+        double dineroMulta1;
+        String usuarioAdmin = "Admin",passAdmin = "1234",numeroTicket;
+        boolean codigoValido = false;
         do {
             System.out.println();
             System.out.println("Bienvenido a Zona Azul de Martos");
@@ -60,7 +60,34 @@ public class proyectoParking {
                     System.out.println("1. ANULAR UNA MULTA POR EXCEDER EL TIEMPO PERMITIDO.");
                     System.out.println("2. ANULAR UNA MULTA POR CARECER DE TICKET.");
                     System.out.print("INTRODUCE TU OPCIÓN: ");
-                    int var4 = Integer.parseInt(s.nextLine());
+                     opcionMultas = Integer.parseInt(s.nextLine());
+                    if (opcionMultas == 1){
+                        do {
+
+
+                        System.out.println("INTRODUCE EL NÚMERO DE TICKET: ");
+                        numeroTicket= s.nextLine();
+
+                        codigoTicket = Integer.parseInt(numeroTicket.substring(0,6));
+                        codigoMulta = Integer.parseInt(numeroTicket.substring(6,7));
+                        if(codigoTicket <= 999999 && codigoTicket >= 888889 && (codigoMulta == 0)) codigoValido = true;
+                        if(codigoTicket <= 888888 && codigoTicket >= 777778 && (codigoMulta == 2)) codigoValido = true;
+                        if(codigoTicket <= 777777 && codigoTicket >= 666667 && (codigoMulta == 4)) codigoValido = true;
+                        if(codigoTicket <= 666666 && codigoTicket >= 555556 && (codigoMulta == 6)) codigoValido = true;
+                        if(codigoTicket <= 555555 && codigoTicket >= 444445 && (codigoMulta == 8)) codigoValido = true;
+                        if(codigoTicket <= 444444 && codigoTicket >= 333334 && (codigoMulta == 1)) codigoValido = true;
+
+                        if (codigoValido == false) System.out.println("NÚMERO INTRODUCIDO NO VÁLIDO");
+
+                        }while (codigoValido == false);
+
+                        System.out.println("NÚMERO INTRODUCIDO VÁLIDO");
+                        do {
+                            System.out.println("Introduce el dinero (3.00 €):");
+                            dineroMulta1 = Double.parseDouble(s.nextLine());
+
+                        }while (dineroMulta1 < 3);
+                    }
                     break;
                 case 3:
 
@@ -112,6 +139,7 @@ public class proyectoParking {
                         System.out.println("3. APAGAR PROGRAMA. ");
                         System.out.println("INTRODUZCA SU OPCIÓN: ");
                         opcionAdmin = Integer.parseInt(s.nextLine());
+
                         switch (opcionAdmin) {
                             case 1:
                             case 2:
