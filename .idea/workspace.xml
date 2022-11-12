@@ -23,6 +23,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2HNKcGj09gFvEayj8M15DHimDCq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,7 +38,14 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Programacion 1 DAM/Proyecto-Parking&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.cambios">
+    <configuration name="cambios" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cambios" />
+      <module name="Proyecto-Parking" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="codigoMulta" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="codigoMulta" />
       <module name="Proyecto-Parking" />
@@ -43,8 +53,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="proyectoParking" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="proyectoParking" />
+      <module name="Proyecto-Parking" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.cambios" />
+        <item itemvalue="Application.proyectoParking" />
         <item itemvalue="Application.codigoMulta" />
       </list>
     </recent_temporary>

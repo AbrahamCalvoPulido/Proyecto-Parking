@@ -8,9 +8,9 @@ public class proyectoParking {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         Calendar d = Calendar.getInstance();
-        int codigoTicket,codigoMulta,opcionAdmin = 4,opcionMultas,segundosAux = 0,segundosPagados = 0,minutosPagados = 0,horasPagados = 0;
-        double dineroMulta1;
-        String usuarioAdmin = "Admin",passAdmin = "1234",numeroTicket;
+        int codigoTicket,opcionAdmin = 4,opcionMultas,segundosAux = 0,segundosPagados = 0,minutosPagados = 0,horasPagados = 0;
+        double dineroMulta1,dineroMulta2;
+        String usuarioAdmin = "Admin",passAdmin = "1234",numeroTicket,numeroMulta = "";
         boolean codigoValido = false;
         do {
             System.out.println();
@@ -32,7 +32,7 @@ public class proyectoParking {
                         break;
                     }
 
-                    double cantidadIn;
+                    double cantidadIn = 0;
                     do {
                         System.out.print("Introduce el dinero: ");
                         cantidadIn = Double.parseDouble(s.nextLine());
@@ -54,51 +54,55 @@ public class proyectoParking {
                     segundosAux %= 3600;
                     minutosPagados = segundosAux / 60;
                     segundosAux %= 60;
-                    System.out.printf("%02d : %02d: %02d ", horasPagados, minutosPagados, segundosAux);
-                    break;
+
+
                 case 2:
                     System.out.println("1. ANULAR UNA MULTA POR EXCEDER EL TIEMPO PERMITIDO.");
                     System.out.println("2. ANULAR UNA MULTA POR CARECER DE TICKET.");
                     System.out.print("INTRODUCE TU OPCIÓN: ");
                      opcionMultas = Integer.parseInt(s.nextLine());
-                    if (opcionMultas == 1){
-                        do {
+
+                     switch (opcionMultas){
+
+                         case 1:
+                         System.out.println("INTRODUCE EL NÚMERO DE TICKET: ");
+                         numeroTicket= s.nextLine();
 
 
-                        System.out.println("INTRODUCE EL NÚMERO DE TICKET: ");
-                        numeroTicket= s.nextLine();
 
-                        codigoTicket = Integer.parseInt(numeroTicket.substring(0,6));
-                        codigoMulta = Integer.parseInt(numeroTicket.substring(6,7));
-                        if(codigoTicket <= 999999 && codigoTicket >= 888889 && (codigoMulta == 0)) codigoValido = true;
-                        if(codigoTicket <= 888888 && codigoTicket >= 777778 && (codigoMulta == 2)) codigoValido = true;
-                        if(codigoTicket <= 777777 && codigoTicket >= 666667 && (codigoMulta == 4)) codigoValido = true;
-                        if(codigoTicket <= 666666 && codigoTicket >= 555556 && (codigoMulta == 6)) codigoValido = true;
-                        if(codigoTicket <= 555555 && codigoTicket >= 444445 && (codigoMulta == 8)) codigoValido = true;
-                        if(codigoTicket <= 444444 && codigoTicket >= 333334 && (codigoMulta == 1)) codigoValido = true;
+                         case 2:
+                             do {
+                                 int codigoMulta = ((int)(Math.random()*(999-561+1)+556));
+                                 if ((codigoMulta <= 999)&& (codigoMulta >= 889)) numeroMulta = codigoMulta +"3";
+                                 if ((codigoMulta <= 888)&& (codigoMulta >= 778)) numeroMulta = codigoMulta +"5";
+                                 if ((codigoMulta <= 777)&& (codigoMulta >= 667)) numeroMulta = codigoMulta +"7";
+                                 if ((codigoMulta <= 666)&& (codigoMulta >= 556)) numeroMulta = codigoMulta +"9";
 
-                        if (codigoValido == false) System.out.println("NÚMERO INTRODUCIDO NO VÁLIDO");
+                                 System.out.println("INTRODUZCA EL DINERO DE LA MULTA (6,00 €): ");
+                                 dineroMulta2 = Integer.parseInt(s.nextLine());
+                             }while (dineroMulta2 >=6);
 
-                        }while (codigoValido == false);
 
-                        System.out.println("NÚMERO INTRODUCIDO VÁLIDO");
-                        do {
-                            System.out.println("Introduce el dinero (3.00 €):");
-                            dineroMulta1 = Double.parseDouble(s.nextLine());
 
-                        }while (dineroMulta1 < 3);
-                    }
+                     }
+
+
                     break;
                 case 3:
 
-                    System.out.println("1. FECHA/HORA ACTUAL ");
+
                     PrintStream var10000 = System.out;
                     int var10001 = d.get(5);
+                    System.out.println();
+                    System.out.println("  FECHA:");
                     var10000.println("" + var10001 + "/" + (d.get(2) + 1) + "/" + d.get(1));
                     var10000 = System.out;
+                    System.out.println();
                     var10001 = d.get(11);
+                    System.out.println("HORA:");
                     var10000.println("" + var10001 + ":" + d.get(12));
                     System.out.println();
+                    System.out.println("                         TARIFAS:");
                     System.out.println("""
                             
                              DURACIÓN             NO RESIDENTES            RESIDENTES
