@@ -38,7 +38,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Programacion 1 DAM/Proyecto-Parking&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.cambios">
+  <component name="RunManager" selected="Application.proyectoParking">
     <configuration name="cambios" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cambios" />
       <module name="Proyecto-Parking" />
@@ -62,8 +62,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.cambios" />
         <item itemvalue="Application.proyectoParking" />
+        <item itemvalue="Application.cambios" />
         <item itemvalue="Application.codigoMulta" />
       </list>
     </recent_temporary>
