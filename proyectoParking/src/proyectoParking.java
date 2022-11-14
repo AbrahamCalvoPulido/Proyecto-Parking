@@ -11,7 +11,11 @@ public class proyectoParking {
         Calendar d = Calendar.getInstance();
 
         //Todo INICIALIZACIÓN DE VARIABLES.
-        int codigoTicket, opcionFecha = 0, multasAnuladas = 0, totalMultas = 0, anioDelPago, horaDelPago, minDelPago, horaFinEstablecimiento = 0, diaFinEstablecimiento = 0, mesFinEstablecimiento = 0, minFinEstablecimiento = 0, numAux, numAleatorio, longitudTicket, codigoMulta, codigoMulta2, opcionAdmin = 4, opcionMultas, segundosAux = 0, cantidadTickets = 0, segundosPagados = 0, minutosPagados = 0, horasPagados = 0;
+        int codigoTicket,mesAhora=d.get(Calendar.MONTH),diaAhora=d.get(Calendar.DAY_OF_MONTH),anioAhora=d.get(Calendar.YEAR),
+                horaAhora=d.get(Calendar.HOUR_OF_DAY),minAhora=d.get(Calendar.MINUTE), opcionFecha=0,multasAnuladas=0,
+                totalMultas=0,anioDelPago,horaDelPago,minDelPago,horaFinEstablecimiento=0, diaFinEstablecimiento=0,
+                mesFinEstablecimiento=0,minFinEstablecimiento = 0,numAux,numAleatorio,longitudTicket, codigoMulta,opcionAdmin = 4,
+                opcionMultas,segundosAux = 0,cantidadTickets=0,segundosPagados = 0,minutosPagados = 0, horasPagados = 0,codigoMulta2= 0;
         double dineroMulta1 = 0, cantidadIn, dineroTotalTickets = 0, dineroMulta2 = 0;
         String passAdmin = "1234", numeroTicket = "", numeroTicket2 = "", numeroMulta = "", usuarioAdmin = "Admin", parte1 = "", parte2 = "";
         char caracter = 0;
@@ -38,23 +42,26 @@ public class proyectoParking {
                         System.out.println();
                         System.out.print("INTRODUCE TU OPCION: ");
                         opcionFecha = Integer.parseInt(s.nextLine());
-                        switch (opcionFecha) {
-
-                            //Todo FECHA SIMULADA.
+                        switch(opcionFecha){
                             case 1:
                                 System.out.print("INTRODUCE EL DIA:(1-31)");
-                                d.set(Calendar.DAY_OF_MONTH, Integer.parseInt(s.nextLine()));
+                                d.set(Calendar.DAY_OF_MONTH,Integer.parseInt(s.nextLine()));
                                 System.out.print("INTRODUCE EL MES:(0=ENERO-11=DICIEMBRE)");
-                                d.set(Calendar.MONTH, Integer.parseInt(s.nextLine()));
+                                d.set(Calendar.MONTH,Integer.parseInt(s.nextLine()));
                                 System.out.print("INTRODUCE EL ANIO:");
-                                d.set(Calendar.YEAR, Integer.parseInt(s.nextLine()));
+                                d.set(Calendar.YEAR,Integer.parseInt(s.nextLine()));
                                 System.out.print("INTRODUCE LA HORA:(0-23H)");
-                                d.set(Calendar.HOUR_OF_DAY, Integer.parseInt(s.nextLine()));
+                                d.set(Calendar.HOUR_OF_DAY,Integer.parseInt(s.nextLine()));
                                 System.out.print("INTRODUCE LOS MINUTOS:(0-59M)");
-                                d.set(Calendar.MINUTE, Integer.parseInt(s.nextLine()));
+                                d.set(Calendar.MINUTE,Integer.parseInt(s.nextLine()));
                                 break;
                             case 2:
                                 System.out.println("ESTAS USANDO LA FECHA ACTUAL");
+                                d.set(Calendar.DAY_OF_MONTH,diaAhora);
+                                d.set(Calendar.MONTH,mesAhora);
+                                d.set(Calendar.YEAR,anioAhora);
+                                d.set(Calendar.HOUR_OF_DAY,horaAhora);
+                                d.set(Calendar.MINUTE,minAhora);
                                 break;
                             default:
                                 System.out.println("OPCION INCORRECTA INTENTELO DE NUEVO");
@@ -2199,7 +2206,7 @@ public class proyectoParking {
                             delay("PROCESANDO PAGO");
                             System.out.println();
                             System.out.println("=======================================================");
-                            System.out.println("| N-TICKET: " + numeroTicket + "                      " + d.get(Calendar.DAY_OF_MONTH) + "/" + (d.get(Calendar.MONTH) + 1) + "/" + d.get(Calendar.YEAR) + "          |");
+                            System.out.println("| N-TICKET: " +                "                      " + d.get(Calendar.DAY_OF_MONTH) + "/" + (d.get(Calendar.MONTH) + 1) + "/" + d.get(Calendar.YEAR) + "      |");
                             System.out.println("|                                                     |");
                             System.out.printf("|                                      %02d:%02d          |", d.get(Calendar.HOUR_OF_DAY), d.get(Calendar.MINUTE));
                             System.out.println();
@@ -2273,7 +2280,7 @@ public class proyectoParking {
                         System.out.println("2. CONSULTAR EL DINERO INGRESADO POR MULTAS Y LAS MULTAS ANULADAS. ");
                         System.out.println();
                         System.out.println("3. APAGAR PROGRAMA. ");
-                        System.out.println("INTRODUZCA SU OPCION: ");
+                        System.out.print("INTRODUZCA SU OPCION: ");
                         opcionAdmin = Integer.parseInt(s.nextLine());
 
                         switch (opcionAdmin) {
@@ -2288,7 +2295,7 @@ public class proyectoParking {
                             case 2:
                                 System.out.println("EL DINERO GENERADO POR MULTAS HA SIDO: " + totalMultas);
                                 System.out.println();
-                                System.out.println("EL TOTAL DE MULTAS ANULADAS HAN SIDO" + multasAnuladas);
+                                System.out.println("EL TOTAL DE MULTAS ANULADAS HAN SIDO: " + multasAnuladas);
                                 System.out.println();
                                 System.out.println("PULSE UNA TECLA PARA CONTINUAR...");
                                 s.nextLine();
